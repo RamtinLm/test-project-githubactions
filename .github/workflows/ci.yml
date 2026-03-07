@@ -16,9 +16,14 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windoes-latest, macOS-latest]
+        
+    
+    steps:
+    - uses: actions/checkout@v2
 
     steps:
     - uses: actions/checkout@v4
